@@ -74,6 +74,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+document.addEventListener('DOMContentLoaded', () => {
+  const stars = document.querySelectorAll('.dynamic-stars .star');
+  const starInput = document.getElementById('stars-input');
+
+  let currentRating = 0;
+
+  // Hover effect
+  stars.forEach(star => {
+    star.addEventListener('mouseover', () => {
+      const val = parseInt(star.dataset.value);
+      highlightStars(val);
+    });
+
+    star.addEventListener('mouseout', () => {
+      highlightStars(currentRating); // revert to selected rating
+    });
+
+    star.addEventListener('click', () => {
+      currentRating = parseInt(star.dataset.value);
+      highlightStars(currentRating);
+      if (starInput) {
+        starInput.value = currentRating;
+      }
+    });
+  });
+
+  function highlightStars(rating) {
+    stars.forEach(star => {
+      const val = parseInt(star.dataset.value);
+      star.classList.toggle('selected', val <= rating);
+    });
+  }
+});
 
 
              </script>

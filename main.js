@@ -37,13 +37,13 @@ class RestaurantApp {
         });
 
         // Smooth scrolling for internal links
-        document.addEventListener('click', (e) => {
-            if (e.target.matches('a[href^="#"]')) {
-                e.preventDefault();
-                const target = e.target.getAttribute('href').substring(1);
-                this.navigateToSection(target);
-            }
-        });
+        // document.addEventListener('click', (e) => {
+        //     if (e.target.matches('a[href^="#"]')) {
+        //         e.preventDefault();
+        //         const target = e.target.getAttribute('href').substring(1);
+        //         this.navigateToSection(target);
+        //     }
+        // });
 
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {

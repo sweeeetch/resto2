@@ -35,6 +35,13 @@ body {
     display: flex;
     flex-direction: column;
 }
+.copyright {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
 
 /* Typography */
 h1, h2, h3, h4 {

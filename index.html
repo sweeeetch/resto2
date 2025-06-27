@@ -138,7 +138,33 @@ document.addEventListener('DOMContentLoaded', () => {
       star.classList.toggle('selected', val <= rating);
     });
   }
-</script>
+document.addEventListener('DOMContentLoaded', () => {
+  const viewMenuBtn = document.querySelector('.view-menu-btn');
+  const sections = document.querySelectorAll('.section');
+
+  if (viewMenuBtn) {
+    viewMenuBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const sectionId = viewMenuBtn.getAttribute('data-section') || 'menu';
+
+      // Remove active from all sections
+      sections.forEach(sec => sec.classList.remove('active'));
+
+      // Activate target section
+      const targetSection = document.getElementById(sectionId);
+      if (targetSection) {
+        targetSection.classList.add('active');
+
+        // Optional: scroll to it
+        targetSection.scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+    });
+  }
+});
+
+            </script>
 
             <section id="home" class="section active">
                 <div class="hero-container">

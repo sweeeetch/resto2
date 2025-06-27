@@ -48,6 +48,31 @@
     });
   });
 });
+document.addEventListener('DOMContentLoaded', () => {
+  const categoryButtons = document.querySelectorAll('.category-btn');
+  const categories = document.querySelectorAll('.menu-category');
+
+  categoryButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const selected = btn.getAttribute('data-category');
+
+      // Remove active class from all buttons
+      categoryButtons.forEach(b => b.classList.remove('active'));
+
+      // Remove active class from all categories
+      categories.forEach(cat => cat.classList.remove('active'));
+
+      // Add active class to clicked button
+      btn.classList.add('active');
+
+      // Add active class to the matching category
+      const targetCategory = document.getElementById(selected);
+      if (targetCategory) {
+        targetCategory.classList.add('active');
+      }
+    });
+  });
+});
 
              </script>
             <section id="home" class="section active">

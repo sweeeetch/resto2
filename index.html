@@ -73,6 +73,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+setupReviewAnimations() {
+    const reviewCards = document.querySelectorAll('.review-card');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('animate');
+                }, parseInt(entry.target.getAttribute('data-review-index')) * 200);
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    reviewCards.forEach(card => {
+        observer.observe(card);
+    });
+}
 
              </script>
             <section id="home" class="section active">

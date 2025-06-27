@@ -67,6 +67,10 @@ p {
     margin-bottom: 1rem;
     color: var(--text-secondary);
 }
+a[href^="tel"] {
+  color: var(--primary-secondary);
+  text-decoration: none;
+}
 
 /* Desktop Navigation */
 .desktop-nav {

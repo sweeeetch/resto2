@@ -28,6 +28,29 @@
         <!-- Main Content -->
         <main class="main-content">
             <!-- Home Section -->
+             <script > 
+             document.addEventListener('DOMContentLoaded', () => {
+  const links = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('.section');
+
+  links.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = link.getAttribute('data-section');
+
+      // Remove active from all
+      sections.forEach(sec => sec.classList.remove('active'));
+
+      // Add active to the target section
+      const targetSection = document.getElementById(target);
+      if (targetSection) {
+        targetSection.classList.add('active');
+      }
+    });
+  });
+});
+
+             </script>
             <section id="home" class="section active">
                 <div class="hero-container">
                     <div class="hero-content">

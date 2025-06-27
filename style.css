@@ -456,7 +456,7 @@ p {
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
     transition: var(--transition);
-    opacity: 0;
+    opacity: 1;
     transform: translateY(30px);
 }
 

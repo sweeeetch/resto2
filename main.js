@@ -379,6 +379,4 @@ if ('serviceWorker' in navigator) {
       star.classList.toggle('selected', val <= rating);
     });
   }
-document.addEventListener('DOMContentLoaded', () => {
-  window.restaurantApp = new RestaurantApp(); // this should trigger showSection('home')
-});
+

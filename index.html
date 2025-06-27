@@ -73,27 +73,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
-setupReviewAnimations() {
-    const reviewCards = document.querySelectorAll('.review-card');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.classList.add('animate');
-                }, parseInt(entry.target.getAttribute('data-review-index')) * 200);
-            }
-        });
-    }, {
-        threshold: 0.1
-    });
 
-    reviewCards.forEach(card => {
-        observer.observe(card);
-    });
-}
 
              </script>
+            <script>
+  const stars = document.querySelectorAll('.dynamic-stars .star');
+  const starInput = document.getElementById('stars-input');
+
+  let currentRating = 0;
+
+  stars.forEach(star => {
+    star.addEventListener('mouseover', () => {
+      const val = +star.dataset.value;
+      highlightStars(val);
+    });
+
+    star.addEventListener('mouseout', () => {
+      highlightStars(currentRating);
+    });
+
+    star.addEventListener('click', () => {
+      currentRating = +star.dataset.value;
+      starInput.value = currentRating;
+    });
+  });
+
+  function highlightStars(rating) {
+    stars.forEach(star => {
+      const val = +star.dataset.value;
+      star.classList.toggle('selected', val <= rating);
+    });
+  }
+</script>
+
             <section id="home" class="section active">
                 <div class="hero-container">
                     <div class="hero-content">

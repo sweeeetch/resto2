@@ -825,3 +825,43 @@ button:focus, .nav-link:focus, .nav-item:focus {
   border-radius: 12px;
   box-shadow: 0 0 20px rgba(0,0,0,0.6);
 }
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.modal-content {
+  background: #111; /* Dark background to match your theme */
+  color: #fff;      /* Make the text white */
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  max-width: 90%;
+  width: 300px;
+}
+
+.modal-content p {
+  font-size: 1.2rem;
+  color: #ffd700; /* or white, choose your theme */
+  margin-bottom: 1rem;
+}
+
+.modal-content button {
+  background-color: #ffd700;
+  color: #000;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}

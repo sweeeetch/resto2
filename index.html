@@ -29,6 +29,26 @@
         <main class="main-content">
             <!-- Home Section -->
             <script>
+    document.addEventListener('DOMContentLoaded', () => {
+  const sections = document.querySelectorAll('.section');
+
+  sections.forEach(section => {
+    const bgUrl = section.dataset.bg;
+    if (bgUrl) {
+      section.style.setProperty('--bg-url', `url(${bgUrl})`);
+      const style = document.createElement('style');
+      style.textContent = `
+        #${section.id}::before {
+          background-image: var(--bg-url);
+        }
+      `;
+      document.head.appendChild(style);
+    }
+  });
+});
+
+</script>
+            <script>
 document.addEventListener('DOMContentLoaded', () => {
   const stars = document.querySelectorAll('#star-rating .star');
   const starInput = document.getElementById('stars-input');
@@ -279,7 +299,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             </script>
 
-            <section id="home" class="section active">
+            <section id="home" class="section active" data-bg="https://res.cloudinary.com/db4shdsfn/image/upload/v1751122031/bernd-dittrich-K-3bdl_kAw8-unsplash_1_gld6ce.jpg">
                 <div class="hero-container">
                     <div class="hero-content">
                         <h1>Welcome to Swetch"s</h1>
@@ -315,7 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </section>
 
             <!-- Menu Section -->
-            <section id="menu" class="section">
+            <section id="menu" class="section" data-bg="https://res.cloudinary.com/db4shdsfn/image/upload/v1751122004/kirari-shteyn-mS3xiBJ1KzA-unsplash_1_vrhlws.jpg">
                 <div class="section-header">
                     <h2>Our Menu</h2>
                     <p>Crafted with passion, served with love</p>
@@ -412,7 +432,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </section>
 
             <!-- Map Section -->
-            <section id="map" class="section">
+            <section id="map" class="section" data-bg="https://res.cloudinary.com/db4shdsfn/image/upload/v1751122030/ricardo-gomez-angel--98jVaVuGv0-unsplash_1_zalt4q.jpg">
                 <div class="section-header">
                     <h2>Visit Us</h2>
                     <p>Find your way to exceptional dining</p>
@@ -449,7 +469,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </section>
 
             <!-- Reviews Section -->
-            <section id="reviews" class="section">
+            <section id="reviews" class="section" data-bg="https://res.cloudinary.com/db4shdsfn/image/upload/v1751122015/bernd-dittrich-lOoT-4vMQy4-unsplash_1_x2ufpy.jpg">
                <!-- Reviews Section -->
             <div class="section-header">
              <h2>What Our Guests Say</h2>

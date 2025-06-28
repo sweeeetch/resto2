@@ -28,6 +28,25 @@
         <!-- Main Content -->
         <main class="main-content">
             <!-- Home Section -->
+            <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const images = document.querySelectorAll('.menu-image');
+    const lightbox = document.getElementById('image-lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    images.forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.remove('hidden');
+      });
+    });
+
+    lightbox.addEventListener('click', () => {
+      lightbox.classList.add('hidden');
+      lightboxImg.src = '';
+    });
+  });
+</script>
              <script > 
              document.addEventListener('DOMContentLoaded', () => {
   const links = document.querySelectorAll('.nav-link, .nav-item');
@@ -237,84 +256,85 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
 
                 <div class="menu-items">
-                    
-                   <div class="menu-category active" id="appetizers">
-  <div class="menu-item">
-    <img src="https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Chakchouka" loading="lazy">
-    <div class="item-info">
-      <h4>Chakchouka</h4>
-      <p>Traditional North African dish with tomatoes, peppers, onions, and eggs</p>
-      <span class="price">450 DA</span>
+
+  <div class="menu-category active" id="appetizers">
+    <div class="menu-item">
+      <img class="menu-image" src="https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Chakchouka" loading="lazy">
+      <div class="item-info">
+        <h4>Chakchouka</h4>
+        <p>Traditional North African dish with tomatoes, peppers, onions, and eggs</p>
+        <span class="price">450 DA</span>
+      </div>
+    </div>
+    <div class="menu-item">
+      <img class="menu-image" src="https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Harira" loading="lazy">
+      <div class="item-info">
+        <h4>Harira Soup</h4>
+        <p>Rich lentil and tomato soup with chickpeas and vermicelli</p>
+        <span class="price">400 DA</span>
+      </div>
     </div>
   </div>
-  <div class="menu-item">
-    <img src="https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Harira" loading="lazy">
-    <div class="item-info">
-      <h4>Harira Soup</h4>
-      <p>Rich lentil and tomato soup with chickpeas and vermicelli</p>
-      <span class="price">400 DA</span>
+
+  <div class="menu-category" id="mains">
+    <div class="menu-item">
+      <img class="menu-image" src="https://images.pexels.com/photos/1633578/pexels-photo-1633578.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Couscous Royal" loading="lazy">
+      <div class="item-info">
+        <h4>Couscous Royal</h4>
+        <p>Classic couscous with vegetables, lamb, chicken, and merguez</p>
+        <span class="price">950 DA</span>
+      </div>
+    </div>
+    <div class="menu-item">
+      <img class="menu-image" src="https://images.pexels.com/photos/1639562/pexels-photo-1639562.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Grilled Brochettes" loading="lazy">
+      <div class="item-info">
+        <h4>Grilled Brochettes</h4>
+        <p>Skewers of marinated meat served with fries and salad</p>
+        <span class="price">850 DA</span>
+      </div>
     </div>
   </div>
+
+  <div class="menu-category" id="desserts">
+    <div class="menu-item">
+      <img class="menu-image" src="https://images.pexels.com/photos/1639562/pexels-photo-1639562.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Makroud" loading="lazy">
+      <div class="item-info">
+        <h4>Makroud</h4>
+        <p>Semolina pastries filled with dates, soaked in honey</p>
+        <span class="price">300 DA</span>
+      </div>
+    </div>
+    <div class="menu-item">
+      <img class="menu-image" src="https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Baklawa" loading="lazy">
+      <div class="item-info">
+        <h4>Baklawa</h4>
+        <p>Layered pastry with nuts and sweet syrup</p>
+        <span class="price">350 DA</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-category" id="beverages">
+    <div class="menu-item">
+      <img class="menu-image" src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Mint Tea" loading="lazy">
+      <div class="item-info">
+        <h4>Mint Tea</h4>
+        <p>Freshly brewed green tea with mint leaves</p>
+        <span class="price">150 DA</span>
+      </div>
+    </div>
+    <div class="menu-item">
+      <img class="menu-image" src="https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Espresso" loading="lazy">
+      <div class="item-info">
+        <h4>Espresso</h4>
+        <p>Strong shot of freshly brewed coffee</p>
+        <span class="price">200 DA</span>
+      </div>
+    </div>
+  </div>
+
 </div>
 
-<div class="menu-category" id="mains">
-  <div class="menu-item">
-    <img src="https://images.pexels.com/photos/1633578/pexels-photo-1633578.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Couscous Royal" loading="lazy">
-    <div class="item-info">
-      <h4>Couscous Royal</h4>
-      <p>Classic couscous with vegetables, lamb, chicken, and merguez</p>
-      <span class="price">950 DA</span>
-    </div>
-  </div>
-  <div class="menu-item">
-    <img src="https://images.pexels.com/photos/1639562/pexels-photo-1639562.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Grilled Brochettes" loading="lazy">
-    <div class="item-info">
-      <h4>Grilled Brochettes</h4>
-      <p>Skewers of marinated meat served with fries and salad</p>
-      <span class="price">850 DA</span>
-    </div>
-  </div>
-</div>
-
-<div class="menu-category" id="desserts">
-  <div class="menu-item">
-    <img src="https://images.pexels.com/photos/1639562/pexels-photo-1639562.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Makroud" loading="lazy">
-    <div class="item-info">
-      <h4>Makroud</h4>
-      <p>Semolina pastries filled with dates, soaked in honey</p>
-      <span class="price">300 DA</span>
-    </div>
-  </div>
-  <div class="menu-item">
-    <img src="https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Baklawa" loading="lazy">
-    <div class="item-info">
-      <h4>Baklawa</h4>
-      <p>Layered pastry with nuts and sweet syrup</p>
-      <span class="price">350 DA</span>
-    </div>
-  </div>
-</div>
-
-<div class="menu-category" id="beverages">
-  <div class="menu-item">
-    <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Mint Tea" loading="lazy">
-    <div class="item-info">
-      <h4>Mint Tea</h4>
-      <p>Freshly brewed green tea with mint leaves</p>
-      <span class="price">150 DA</span>
-    </div>
-  </div>
-  <div class="menu-item">
-    <img src="https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Espresso" loading="lazy">
-    <div class="item-info">
-      <h4>Espresso</h4>
-      <p>Strong shot of freshly brewed coffee</p>
-      <span class="price">200 DA</span>
-    </div>
-  </div>
-</div>
-
-                </div>
             </section>
 
             <!-- Map Section -->
@@ -442,6 +462,9 @@ document.addEventListener('DOMContentLoaded', () => {
             </button>
         </nav>
     </div>
-
+ <div id="image-lightbox" class="hidden">
+  <div class="overlay"></div>
+  <img id="lightbox-img" src="" alt="Zoomed Image">
+</div>
 </body>
 </html>

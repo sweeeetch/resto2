@@ -28,7 +28,7 @@
         <!-- Main Content -->
         <main class="main-content">
             <!-- Home Section -->
-<!--             <script>
+            <script>
     document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('.section');
 
@@ -47,7 +47,7 @@
   });
 });
 
-</script> -->
+</script>
             <script>
 document.addEventListener('DOMContentLoaded', () => {
   const stars = document.querySelectorAll('#star-rating .star');
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 </script>
              <script > 
-             document.addEventListener('DOMContentLoaded', () => {
+           document.addEventListener('DOMContentLoaded', () => {
   const links = document.querySelectorAll('.nav-link, .nav-item');
   const sections = document.querySelectorAll('.section');
 
@@ -150,26 +150,13 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       const target = link.getAttribute('data-section');
 
-      // Remove 'active' from all sections and clear background
-      sections.forEach(sec => {
-        sec.classList.remove('active');
-        sec.style.backgroundImage = '';
-      });
+      // Remove active from all
+      sections.forEach(sec => sec.classList.remove('active'));
 
-      // Activate target section
+      // Add active to the target section
       const targetSection = document.getElementById(target);
       if (targetSection) {
         targetSection.classList.add('active');
-
-        // Get background image from data-bg
-        const bgUrl = targetSection.getAttribute('data-bg');
-        if (bgUrl) {
-          targetSection.style.backgroundImage = `url('${bgUrl}')`;
-          targetSection.style.backgroundSize = 'cover';
-          targetSection.style.backgroundPosition = 'center';
-          targetSection.style.backgroundRepeat = 'no-repeat';
-          targetSection.style.backdropFilter = 'blur(4px)';
-        }
       }
     });
   });

@@ -865,3 +865,27 @@ button:focus, .nav-link:focus, .nav-item:focus {
 .hidden {
   display: none;
 }
+
+.section {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  filter: blur(4px) brightness(0.6);
+  transition: opacity 0.5s ease;
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .section::before {
+    transform: scale(1.1);
+  }
+}

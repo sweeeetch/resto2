@@ -29,6 +29,79 @@
         <main class="main-content">
             <!-- Home Section -->
             <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const stars = document.querySelectorAll('#star-rating .star');
+  const starInput = document.getElementById('stars-input');
+  const form = document.getElementById('review-form');
+  const modal = document.getElementById('thank-you-modal');
+  const closeBtn = document.getElementById('close-thank-you');
+
+  let currentRating = 0;
+
+  // STAR LOGIC
+  stars.forEach(star => {
+    star.addEventListener('mouseover', () => {
+      highlightStars(+star.dataset.value);
+    });
+    star.addEventListener('mouseout', () => {
+      highlightStars(currentRating);
+    });
+    star.addEventListener('click', () => {
+      currentRating = +star.dataset.value;
+      starInput.value = currentRating;
+    });
+  });
+
+  function highlightStars(rating) {
+    stars.forEach(star => {
+      star.classList.toggle('selected', +star.dataset.value <= rating);
+    });
+  }
+
+  // FORM SUBMIT
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    if (localStorage.getItem('reviewSubmitted')) {
+      alert("You’ve already submitted a review.");
+      return;
+    }
+
+    const name = form.elements['name'].value.trim();
+    const message = form.elements['message'].value.trim();
+    const rating = starInput.value;
+
+    if (!name || !message || rating === "0" || rating === "") {
+      alert("Please fill in all fields and select a rating.");
+      return;
+    }
+
+    // Simulate submission
+    console.log("Submitted Review:", { name, message, rating });
+
+    localStorage.setItem('reviewSubmitted', 'true');
+
+    // Disable form fields
+    form.querySelectorAll('input, textarea, button').forEach(el => el.disabled = true);
+
+    // Show modal
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  });
+
+  // CLOSE MODAL
+  closeBtn.addEventListener('click', () => {
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+  });
+
+  // CHECK IF ALREADY SUBMITTED
+  if (localStorage.getItem('reviewSubmitted')) {
+    form.querySelectorAll('input, textarea, button').forEach(el => el.disabled = true);
+  }
+});
+</script>
+            <script>
   document.addEventListener('DOMContentLoaded', () => {
     const images = document.querySelectorAll('.menu-image');
     const lightbox = document.getElementById('image-lightbox');
@@ -466,6 +539,12 @@ document.addEventListener('DOMContentLoaded', () => {
  <div id="image-lightbox" class="hidden">
   <div class="overlay"></div>
   <img id="lightbox-img" src="" alt="Zoomed Image">
+</div>
+    <div id="thank-you-modal" class="modal hidden">
+  <div class="modal-content">
+    <p>Thanks for your review. See you soon!</p>
+    <button id="close-thank-you">Close</button>
+  </div>
 </div>
 </body>
 </html>
